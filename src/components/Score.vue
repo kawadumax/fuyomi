@@ -11,7 +11,7 @@ export default {
         msg: String
     },
     mounted() {
-        this.draw('C4');
+        this.draw(this.$store.state.currentNoteName);
     },
     methods: {
         draw(note) {

@@ -1,21 +1,23 @@
 <template>
     <ul id="answer">
         <li v-for="note in scale" :key="note">
-            <button>{{ note }}</button>
+            <button :value="note" v-on:click="submit">{{ note }}</button>
         </li>
     </ul>
 </template>
 
 <script>
 export default {
-    props: {
-        msg: String
-    },
     data: function () {
         return {
             scale: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"]
         }
     },
+    methods: {
+        submit: function () {
+            console.log("submit");
+        }
+    }
 }
 </script>
 

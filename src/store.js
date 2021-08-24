@@ -1,10 +1,8 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from "vuex";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {
-    animal: dog,
+const store = createStore({
+  state() {
+    return { currentNoteName: "C4" };
   },
 });
+export default store;
