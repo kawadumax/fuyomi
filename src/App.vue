@@ -3,16 +3,17 @@
   <Answer></Answer>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import Answer from './components/Answers.vue'
 import Score from '@/components/Score.vue'
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     Answer,
     Score
   }
-}
+});
 </script>
 
 <style>
