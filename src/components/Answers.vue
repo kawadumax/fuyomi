@@ -1,7 +1,7 @@
 <template>
     <ul id="answer">
         <li v-for="note in scale" :key="note">
-            <button :value="note" v-on:click="submit">{{ note }}</button>
+            <button :value="note" v-on:click="submit($event)">{{ note }}</button>
         </li>
     </ul>
 </template>
@@ -14,8 +14,14 @@ export default {
         }
     },
     methods: {
-        submit: function () {
+        submit: function (e) {
             console.log("submit");
+            // console.log(e)
+            if (e.target.value == this.$store.state.currentNoteName) {
+                console.log("correct")
+            } else {
+                console.log("wrong")
+            }
         }
     }
 }

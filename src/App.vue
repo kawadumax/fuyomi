@@ -5,7 +5,7 @@
 
 <script>
 import Answer from './components/Answers.vue'
-import Score from './components/Score.vue'
+import Score from '@/components/Score.vue'
 export default {
   name: 'App',
   components: {
