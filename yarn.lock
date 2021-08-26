@@ -1130,6 +1130,11 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/vexflow@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/vexflow/-/vexflow-3.0.1.tgz#3b249484542de9ad36fc261002552b6481ba794d"
+  integrity sha512-uocoyb4hjVJ2sBsf7Oe4gGrwOaCohGsRV6zGOmJOFUrM8iI3OkQjNS2wDjt6gCo3Kg6tf3mRNnqnDFK57TZHZA==
+
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.5"
   resolved "https://registry.yarnpkg.com/@types/webpack-dev-server/-/webpack-dev-server-3.11.5.tgz#f4a254a3dd0667c8ee4af90d42afdb4ad1d607f3"

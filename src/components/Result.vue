@@ -2,7 +2,7 @@
     <div id="result"></div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: 'Result',
     data() {
