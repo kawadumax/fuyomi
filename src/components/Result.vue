@@ -1,5 +1,7 @@
 <template>
-    <div id="result">{{ gooOrBoo }}</div>
+    <div id="result-wrap">
+        <div id="result">{{ gooOrBoo }}</div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -35,5 +37,11 @@ div#result {
     display: flex;
     justify-content: center;
     font-size: 48px;
+    border: 2px solid;
+    width: 60px;
+}
+div#result-wrap {
+    display: flex;
+    justify-content: center;
 }
 </style>
