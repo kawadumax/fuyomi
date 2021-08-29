@@ -1,6 +1,9 @@
+export enum Result {
+  None,
+  Correct,
+  Incorrect,
+}
+
 export default {
-  Result: {
-    Correct: 0,
-    Incorrect: 1,
-  },
+  Result,
 };
