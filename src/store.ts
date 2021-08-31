@@ -9,17 +9,16 @@
 
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
+import { Note } from "@/lib/types";
 
 // export interface Book {
 //   name: string;
 //   author: string;
 // }
 
-export type NoteName = string;
-
 // ストアの型を定義する
 export interface State {
-  currentNoteName: NoteName;
+  currentNoteName: Note;
 }
 
 // InjectionKeyを定義する
@@ -37,8 +36,11 @@ export const store = createStore<State>({
     },
   },
   mutations: {
-    changeNote(state, { noteName }) {
-      state.currentNoteName = noteName;
+    // changeNote(state, { noteName }) {
+    //   state.currentNoteName = noteName;
+    // },
+    changeNote(state) {
+      // state.currentNoteName = note;
     },
   },
 });

@@ -4,6 +4,8 @@ export enum Result {
   Incorrect,
 }
 
+export type Note = string;
+
 export enum NoteName {
   C = "C",
   D = "D",

@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import { computed, reactive } from "vue"
-import { useStore, NoteName } from '@/store'
+import { useStore } from '@/store'
 import Result from "./Result.vue";
-import Constant from "@/constant"
+import Constant from "@/lib/types"
 import { defineComponent } from 'vue';
 export default defineComponent({
     setup() {

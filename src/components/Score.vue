@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from '@vue/runtime-core';
 import Vex from 'vexflow';
-import { NoteName } from "@/store";
+import { Note } from "@/lib/types";
 
 export default defineComponent({
     name: 'Score',
@@ -16,7 +16,7 @@ export default defineComponent({
         this.draw(this.$store.state.currentNoteName);
     },
     methods: {
-        draw(note: NoteName) {
+        draw(note: Note) {
             const vf = new Vex.Flow.Factory({
                 renderer: { elementId: 'score', width: 125, height: 200 }
             });

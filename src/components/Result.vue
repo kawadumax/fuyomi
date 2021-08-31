@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "@vue/runtime-core"
-import { Result } from "@/constant"
+import { Result } from "@/lib/types"
 export default defineComponent({
     name: 'Result',
     props: {
