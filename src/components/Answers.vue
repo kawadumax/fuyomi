@@ -34,10 +34,8 @@ export default defineComponent({
     },
     methods: {
         submit: function (e: MouseEvent) {
-
-            console.log("submit");
-
             this.$data.isAnim = true; // アニメーション開始
+
             let v = (e.target as HTMLInputElement).value;
             if (v == this.$store.state.currentNoteName) {
                 this.$data.currentAnswer = Constant.Result.Correct;
@@ -48,6 +46,8 @@ export default defineComponent({
         },
         onAfterAnimated: function (flag: boolean) {
             this.$data.isAnim = flag;
+            this.$store.commit('changeNote', { noteName: 'D4' });
+
         },
     }
 })

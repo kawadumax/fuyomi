@@ -36,13 +36,8 @@ export const store = createStore<State>({
       return state.currentNoteName;
     },
   },
-  actions: {
-    add({ commit, state }, noteName: NoteName) {
-      commit("add", { noteName: noteName });
-    },
-  },
   mutations: {
-    add(state, { noteName }) {
+    changeNote(state, { noteName }) {
       state.currentNoteName = noteName;
     },
   },
