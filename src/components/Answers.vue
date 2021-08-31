@@ -46,7 +46,7 @@ export default defineComponent({
         },
         onAfterAnimated: function (flag: boolean) {
             this.$data.isAnim = flag;
-            this.$store.commit('changeNote', { noteName: 'D4' });
+            this.$store.commit('changeNote');
 
         },
     }

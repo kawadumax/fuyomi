@@ -3,7 +3,9 @@
 import { NoteName, NoteOctave, NoteSymbol } from "@/lib/types";
 export default {
   generateNote: function() {
-    var array = ["C4", "D4", "E4", "F4", "G4"];
+    //今はmock
+    const array = ["C4", "D4", "E4", "F4", "G4"];
+    console.log("更新");
     return array[Math.floor(Math.random() * array.length)];
   },
 };

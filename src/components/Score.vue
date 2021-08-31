@@ -15,6 +15,17 @@ export default defineComponent({
     mounted() {
         this.draw(this.$store.state.currentNoteName);
     },
+    computed: {
+        currentNote() {
+            return this.$store.state.currentNoteName;
+        }
+    },
+    watch: {
+        currentNote(val, old) {
+            console.log("watch currentNote");
+            this.draw(val);
+        }
+    },
     methods: {
         draw(note: Note) {
             const vf = new Vex.Flow.Factory({

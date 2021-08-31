@@ -10,6 +10,7 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { Note } from "@/lib/types";
+import NoteManager from "./lib/NoteManager";
 
 // export interface Book {
 //   name: string;
@@ -40,6 +41,7 @@ export const store = createStore<State>({
     //   state.currentNoteName = noteName;
     // },
     changeNote(state) {
+      state.currentNoteName = NoteManager.generateNote();
       // state.currentNoteName = note;
     },
   },
