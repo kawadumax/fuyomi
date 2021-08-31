@@ -23,6 +23,7 @@ export default defineComponent({
     watch: {
         currentNote(val, old) {
             console.log("watch currentNote");
+            this.erase();
             this.draw(val);
         }
     },
@@ -42,6 +43,12 @@ export default defineComponent({
             }).addClef('treble').addTimeSignature('4/4');
 
             vf.draw();
+        },
+        erase() {
+            const staff = document.getElementById('score');
+            while (staff!.hasChildNodes()) {
+                staff!.removeChild(staff!.lastChild!);
+            }
         }
     }
 })
