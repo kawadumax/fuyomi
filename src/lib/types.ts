@@ -17,21 +17,22 @@ export enum NoteName {
 }
 
 export enum NoteSymbol {
-  Natural,
-  Sharp,
-  Flat,
+  None = "",
+  Natural = "n",
+  Sharp = "#",
+  Flat = "b",
 }
 
 export enum NoteOctave {
-  Zero = 0,
-  One,
-  Two,
-  Three,
-  Four,
-  Five,
-  Six,
-  Seven,
-  Eight,
+  Zero = "0",
+  One = "1",
+  Two = "2",
+  Three = "3",
+  Four = "4",
+  Five = "5",
+  Six = "6",
+  Seven = "7",
+  Eight = "8",
 }
 
 export default {

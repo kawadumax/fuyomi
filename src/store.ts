@@ -41,7 +41,9 @@ export const store = createStore<State>({
     //   state.currentNoteName = noteName;
     // },
     changeNote(state) {
-      state.currentNoteName = NoteManager.generateNote();
+      const note = NoteManager.generateNote();
+      console.log(note);
+      state.currentNoteName = note;
       // state.currentNoteName = note;
     },
   },
