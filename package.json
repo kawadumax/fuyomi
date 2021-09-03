@@ -10,8 +10,10 @@
   "dependencies": {
     "@types/vexflow": "^3.0.1",
     "core-js": "^3.6.5",
+    "element-plus": "^1.1.0-beta.8",
     "vexflow": "^3.0.9",
     "vue": "^3.0.0",
+    "vue-router": "4",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
