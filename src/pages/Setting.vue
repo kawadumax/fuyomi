@@ -1,12 +1,16 @@
 <template>
-    <el-select v-model="currentLevel" placeholder="Select">
-        <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        ></el-option>
-    </el-select>
+    <el-form ref="form" label-width="120px">
+        <el-form-item label="Difficulty Level">
+            <el-select v-model="currentLevel" placeholder="Select">
+                <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                ></el-option>
+            </el-select>
+        </el-form-item>
+    </el-form>
 </template>
 
 <script lang="ts">
