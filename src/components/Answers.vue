@@ -1,10 +1,10 @@
 <template>
     <section id="answer-section">
-        <ul id="answer">
+        <div id="answer">
             <!-- <li v-for="note in scale" :key="note">
                 <button :value="note" v-on:click="submit($event)">{{ note }}</button>
             </li>-->
-        </ul>
+        </div>
         <Result :result="currentAnswer" :is-anim="isAnim" @after-animated="onAfterAnimated"></Result>
     </section>
 </template>
@@ -37,55 +37,82 @@ export default defineComponent({
     },
     methods: {
         submit: function (e: MouseEvent) {
-            this.$data.isAnim = true; // アニメーション開始
 
-            let v = (e.target as HTMLInputElement).value;
+            this.$data.isAnim = true; // アニメーション開始
+            let group = (e.target as HTMLElement).closest("g");
+            let v = group?.getAttribute("value")
             if (v == this.$store.state.currentNoteName) {
                 this.$data.currentAnswer = Constant.Result.Correct;
             } else {
                 this.$data.currentAnswer = Constant.Result.Incorrect;
             }
-            console.log(this.$data)
         },
         onAfterAnimated: function (flag: boolean) {
             this.$data.isAnim = flag;
+            this.$data.currentAnswer = Constant.Result.None;
             this.$store.commit('changeNote');
 
         },
         drawKey() {
+            function createKeyText(group: any, rect: any, char: string, heightRate: number, font: any) {
+                return group.text(char).font(font).center(0.5 * (rect.width() as number), heightRate * (rect.height() as number))
+            }
+            const White_Key_Width = 20;
+            const White_Key_Height = 100;
+            const White_Key_Font = { size: White_Key_Width, family: 'Helvetica' };
 
-            let draw = SVG().addTo('#answer').size(this.scale.length * 20, 100)
+
+            let draw = SVG().addTo('#answer').size(this.scale.length * White_Key_Width, White_Key_Height)
+            //白鍵
             this.scale.forEach((noteName, i) => {
-                let group = draw.group();
-                let rect = group.rect(20, 100).attr({ fill: 'none', stroke: '#222' })
-                var text_name = group.text(noteName[0])
-                    .font({ size: 20, family: 'Helvetica' })
-                    .center(0.5 * (rect.width() as number), 0.75 * (rect.height() as number));
-                var text_oct = group.text(noteName[1])
-                    .font({ size: 20, family: 'Helvetica' })
-                    .center(0.5 * (rect.width() as number), 0.9 * (rect.height() as number));
-                // rect.click(this.submit);
-                // group.click(this.submit);
+                let group = draw.group().attr({ value: noteName });
+                let rect = group.rect(White_Key_Width, White_Key_Height).attr({ fill: 'none', stroke: '#222' })
+                let text_name = createKeyText(group, rect, noteName[0], 0.75, White_Key_Font);
+                let text_oct = createKeyText(group, rect, noteName[1], 0.9, White_Key_Font);
                 group.mouseover(function (this: any) {
-                    console.log(this);
-                    this.addr({ fill: 'red' });
+                    this.findOne("rect").fill("var(--el-color-primary-light-2)");
                 })
-                group.move(20 * i, 0);
+                group.mouseout(function (this: any) {
+                    this.findOne("rect").fill('white');
+                })
+                group.click(this.submit);
+                group.move(White_Key_Width * i, 0);
+            })
+
+            // 黒鍵
+            const Black_Key_Width = White_Key_Width - 6;
+            const Black_Key_Height = White_Key_Height / 2;
+            const Black_Key_Font = { size: Black_Key_Width, family: 'Helvetica', fill: "white" };
+            this.scale.forEach((noteName, i) => {
+                if (noteName[0] == "B" || noteName[0] == "E") {
+                    return;
+                }
+                let group = draw.group().attr({ value: noteName[0] + "#" + noteName[1] });
+                let rect = group.rect(Black_Key_Width, Black_Key_Height).attr({ fill: 'black', stroke: '#222' })
+                let text_name = createKeyText(group, rect, noteName[0], 0.38, Black_Key_Font);
+                let text_accident = createKeyText(group, rect, "#", 0.6, Black_Key_Font);
+                let text_oct = createKeyText(group, rect, noteName[1], 0.85, Black_Key_Font);
+                group.mouseover(function (this: any) {
+                    this.findOne("rect").fill("var(--el-color-primary)");
+                })
+                group.mouseout(function (this: any) {
+                    this.findOne("rect").fill('black');
+                })
+                group.click(this.submit);
+                group.move(White_Key_Width * (i + 1) - Black_Key_Width / 2, 0);
             })
         }
     }
 })
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 li {
     list-style: none;
-    /* float: left; */
 }
-ul {
+#answer {
     display: flex;
     justify-content: center;
-    padding: 0px;
+    margin-bottom: 10px;
 }
 </style>

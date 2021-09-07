@@ -36,7 +36,6 @@ export default defineComponent({
     mounted() {
         let span = document.getElementsByTagName("span")[0];
         span.addEventListener('animationend', () => {
-            console.log('アニメーション終了');
             this.$emit("afterAnimated", false)
         });
     },
