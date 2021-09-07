@@ -65,7 +65,7 @@ export default defineComponent({
             let draw = SVG().addTo('#answer').size(this.scale.length * White_Key_Width, White_Key_Height)
             //白鍵
             this.scale.forEach((noteName, i) => {
-                let group = draw.group().attr({ value: noteName });
+                let group = draw.group().attr({ value: noteName }).css("cursor", "pointer");
                 let rect = group.rect(White_Key_Width, White_Key_Height).attr({ fill: 'none', stroke: '#222' })
                 let text_name = createKeyText(group, rect, noteName[0], 0.75, White_Key_Font);
                 let text_oct = createKeyText(group, rect, noteName[1], 0.9, White_Key_Font);
@@ -87,7 +87,7 @@ export default defineComponent({
                 if (noteName[0] == "B" || noteName[0] == "E") {
                     return;
                 }
-                let group = draw.group().attr({ value: noteName[0] + "#" + noteName[1] });
+                let group = draw.group().attr({ value: noteName[0] + "#" + noteName[1] }).css("cursor", "pointer");
                 let rect = group.rect(Black_Key_Width, Black_Key_Height).attr({ fill: 'black', stroke: '#222' })
                 let text_name = createKeyText(group, rect, noteName[0], 0.38, Black_Key_Font);
                 let text_accident = createKeyText(group, rect, "#", 0.6, Black_Key_Font);
