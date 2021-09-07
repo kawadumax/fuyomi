@@ -2,15 +2,15 @@
   <ElContainer>
     <ElHeader>
       <ElRow :gutter="20">
-        <ElCol :span="9">
+        <ElCol :span="6">
           <div class="grid-content">
             <h1>FUYOMI</h1>
           </div>
         </ElCol>
-        <ElCol :span="12" :offset="3">
+        <ElCol :span="15" :offset="3">
           <div class="grid-content">
-            <ElMenu default-active="/train" class="menu" mode="horizontal" router>
-              <ElMenuItem index="/train">Fuyomu</ElMenuItem>
+            <ElMenu default-active="/" class="menu" mode="horizontal" router>
+              <ElMenuItem index="/">Fuyomu</ElMenuItem>
               <ElMenuItem index="/about">About</ElMenuItem>
               <ElMenuItem index="/setting">Setting</ElMenuItem>
             </ElMenu>

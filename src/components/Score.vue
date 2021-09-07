@@ -22,7 +22,6 @@ export default defineComponent({
     },
     watch: {
         currentNote(val, old) {
-            console.log("watch currentNote");
             this.erase();
             this.draw(val);
         }
@@ -30,7 +29,7 @@ export default defineComponent({
     methods: {
         draw(note: Note) {
             const vf = new Vex.Flow.Factory({
-                renderer: { elementId: 'score', width: 125, height: 200 }
+                renderer: { elementId: 'score', width: 125, height: 130 }
             });
 
             const score = vf.EasyScore();
@@ -54,7 +53,6 @@ export default defineComponent({
 })
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div#score {
     display: flex;
