@@ -1,11 +1,7 @@
 <template>
     <section id="answer-section">
-        <div id="answer">
-            <!-- <li v-for="note in scale" :key="note">
-                <button :value="note" v-on:click="submit($event)">{{ note }}</button>
-            </li>-->
-        </div>
         <Result :result="currentAnswer" :is-anim="isAnim" @after-animated="onAfterAnimated"></Result>
+        <div id="answer"></div>
     </section>
 </template>
 
@@ -54,6 +50,7 @@ export default defineComponent({
 
         },
         drawKey() {
+            //[REFACTOR] 下記によってレンダリングされるsvgはテンプレート化したほうが良いかもしれん
             function createKeyText(group: any, rect: any, char: string, heightRate: number, font: any) {
                 return group.text(char).font(font).center(0.5 * (rect.width() as number), heightRate * (rect.height() as number))
             }
@@ -113,6 +110,6 @@ li {
 #answer {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 </style>
