@@ -12,6 +12,7 @@ import Result from "./Result.vue";
 import Constant from "@/lib/types"
 import { defineComponent } from 'vue';
 import { SVG } from '@svgdotjs/svg.js'
+import Soundfont from 'soundfont-player'
 
 export default defineComponent({
     setup() {
@@ -22,11 +23,14 @@ export default defineComponent({
         return {
             scale: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5"],
             currentAnswer: Constant.Result.None,
-            isAnim: false
+            isAnim: false,
+            ac: new AudioContext(),
+            instrument: null as any,
         }
     },
     mounted() {
         this.drawKey();
+        this.instrument = Soundfont.instrument(this.ac, 'acoustic_grand_piano');
     },
     components: {
         Result
@@ -42,6 +46,10 @@ export default defineComponent({
             } else {
                 this.$data.currentAnswer = Constant.Result.Incorrect;
             }
+
+            this.instrument.then(function (piano: any) {
+                piano.play(v);
+            })
         },
         onAfterAnimated: function (flag: boolean) {
             this.$data.isAnim = flag;
