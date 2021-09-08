@@ -50,7 +50,7 @@ export default defineComponent({
 
         },
         drawKey() {
-            //[REFACTOR] 下記によってレンダリングされるsvgはテンプレート化したほうが良いかもしれん
+            //[REFACTOR] キーボードの構造は静的なので下記によってレンダリングされるsvgはテンプレート化したほうが良いかもしれん
             function createKeyText(group: any, rect: any, char: string, heightRate: number, font: any) {
                 return group.text(char).font(font).center(0.5 * (rect.width() as number), heightRate * (rect.height() as number))
             }
