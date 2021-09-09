@@ -4,9 +4,8 @@ export enum Result {
   Incorrect,
 }
 
-export type Note = string;
-
-export enum NoteName {
+export type Note = string
+;export enum NoteName {
   C = "C",
   D = "D",
   E = "E",
@@ -40,4 +39,4 @@ export default {
   NoteName,
   NoteSymbol,
   NoteOctave,
-};
+}

@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import Answer from '@/components/Answers.vue'
 import Score from '@/components/Score.vue'
 export default defineComponent({
@@ -13,7 +13,7 @@ export default defineComponent({
         Answer,
         Score
     }
-});
+})
 </script>
 
 <style scoped>

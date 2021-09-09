@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import WebMidi from 'webmidi';
+import { defineComponent } from 'vue'
+import WebMidi from 'webmidi'
 export default defineComponent({
     name: 'About',
     props: {
@@ -34,7 +34,7 @@ export default defineComponent({
 
         // }
     }
-});
+})
 </script>
 
 <style scoped>

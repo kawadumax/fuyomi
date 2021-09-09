@@ -29,15 +29,15 @@ export default defineComponent({
     },
     computed: {
         gooOrBoo() {
-            if (this.$props.result == Result.None) return "";
+            if (this.$props.result == Result.None) return ""
             return this.$props.result == Result.Correct ? "👍" : "👎"
         }
     },
     mounted() {
-        let span = document.getElementsByTagName("span")[0];
+        let span = document.getElementsByTagName("span")[0]
         span.addEventListener('animationend', () => {
             this.$emit("afterAnimated", false)
-        });
+        })
     },
     methods: {
     }
