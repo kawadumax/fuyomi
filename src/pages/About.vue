@@ -2,10 +2,6 @@
     <h1>このアプリについて</h1>
     <p>このアプリは楽譜を早く読めるようになるための訓練用のアプリです。</p>
     <p>Settingで難しさを設定することが出来ます。</p>
-
-    <div>
-        <!-- <button v-on:click="testMidi">てすとだぞ</button> -->
-    </div>
 </template>
 
 <script lang="ts">
