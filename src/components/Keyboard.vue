@@ -56,7 +56,8 @@ import { SVG } from '@svgdotjs/svg.js'
 import Soundfont from 'soundfont-player'
 
 export default defineComponent({
-    setup() {
+    emits: ["keyPressed"],
+    setup(props, context) {
         // Storeを取得する
         const store = useStore()
         const instrument = Soundfont.instrument(new AudioContext(), 'acoustic_grand_piano', { gain: 20 })
@@ -73,18 +74,12 @@ export default defineComponent({
         const FONT_SIZE_BLACK = KEY_WIDTH_BLACK
 
         const submit = (e: MouseEvent) => {
-            // isAnim.value = true // アニメーション開始 isAnimを親に伝える必要がある
             let group = (e.target as HTMLElement).closest("g")
             let v = group?.getAttribute("value")
-            if (v == store.state.currentNoteName) {
-                currentAnswer.value = Constant.Result.Correct
-            } else {
-                currentAnswer.value = Constant.Result.Incorrect
-            }
-
             instrument.then(function (piano: any) {
                 piano.play(v)
             })
+            context.emit("keyPressed", v)
         }
 
         const groupPosW = (index: number) => {

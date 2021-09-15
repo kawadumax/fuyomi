@@ -1,7 +1,10 @@
 <template>
     <div id="result-wrap">
         <div id="result">
-            <span :class="{ animation: isAnim }">{{ gooOrBoo }}</span>
+            <span
+                :class="{ animation: isAnim }"
+                v-on:animationend="$emit('afterAnimated')"
+            >{{ gooOrBoo }}</span>
         </div>
     </div>
 </template>
@@ -34,10 +37,6 @@ export default defineComponent({
         }
     },
     mounted() {
-        let span = document.getElementsByTagName("span")[0]
-        span.addEventListener('animationend', () => {
-            this.$emit("afterAnimated", false)
-        })
     },
     methods: {
     }

@@ -1,7 +1,7 @@
 <template>
     <section id="answer-section">
         <Result :result="currentAnswer" :is-anim="isAnim" @after-animated="onAfterAnimated"></Result>
-        <Keyboard></Keyboard>
+        <Keyboard @key-pressed="onKeyPressed"></Keyboard>
     </section>
 </template>
 
@@ -9,7 +9,7 @@
 import { useStore } from '@/store'
 import Result from "./Result.vue"
 import Keyboard from "./Keyboard.vue"
-import Constant from "@/lib/types"
+import Constant, { Note } from "@/lib/types"
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
@@ -19,24 +19,20 @@ export default defineComponent({
         const isAnim = ref(false)
         const currentAnswer = ref(Constant.Result.None)
 
-        const submit = (e: MouseEvent) => {
-
-            isAnim.value = true // アニメーション開始
-            let group = (e.target as HTMLElement).closest("g")
-            let v = group?.getAttribute("value")
-            if (v == store.state.currentNoteName) {
-                currentAnswer.value = Constant.Result.Correct
-            } else {
-                currentAnswer.value = Constant.Result.Incorrect
-            }
-        }
-
-        const onAfterAnimated = (flag: boolean) => {
-            isAnim.value = flag
+        const onAfterAnimated = () => {
+            isAnim.value = false
             currentAnswer.value = Constant.Result.None
             store.commit('changeNote')
         }
-        return { isAnim, currentAnswer, onAfterAnimated }
+
+        const onKeyPressed = (noteValue: Note) => {
+            // console.log(noteValue + "keyPressed!")
+            isAnim.value = true
+            let R = Constant.Result
+            let isNoteCorrect = noteValue == store.state.currentNoteName
+            currentAnswer.value = isNoteCorrect ? R.Correct : R.Incorrect
+        }
+        return { isAnim, currentAnswer, onAfterAnimated, onKeyPressed }
     },
     components: {
         Result,
