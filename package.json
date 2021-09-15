@@ -12,10 +12,12 @@
     "@types/vexflow": "^3.0.1",
     "core-js": "^3.6.5",
     "element-plus": "^1.1.0-beta.8",
+    "soundfont-player": "^0.12.0",
     "vexflow": "^3.0.9",
     "vue": "^3.0.0",
     "vue-router": "4",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "webmidi": "^2.5.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
@@ -55,7 +57,28 @@
       }
     },
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "semi": [
+        "error",
+        "never",
+        {
+          "beforeStatementContinuationChars": "never"
+        }
+      ],
+      "semi-spacing": [
+        "error",
+        {
+          "after": true,
+          "before": false
+        }
+      ],
+      "semi-style": [
+        "error",
+        "first"
+      ],
+      "no-extra-semi": "error",
+      "no-unexpected-multiline": "error",
+      "no-unreachable": "error"
     },
     "overrides": [
       {

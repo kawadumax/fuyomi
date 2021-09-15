@@ -1,7 +1,7 @@
-import { InjectionKey } from "vue";
-import { createStore, useStore as baseUseStore, Store } from "vuex";
-import { Note } from "@/lib/types";
-import NoteManager from "./lib/NoteManager";
+import { InjectionKey } from "vue"
+import { createStore, useStore as baseUseStore, Store } from "vuex"
+import { Note } from "@/lib/types"
+import NoteManager from "./lib/NoteManager"
 
 // ストアの型を定義する
 export interface State {
@@ -10,7 +10,7 @@ export interface State {
 }
 
 // InjectionKeyを定義する
-export const key: InjectionKey<Store<State>> = Symbol();
+export const key: InjectionKey<Store<State>> = Symbol()
 
 // Storeを作成する
 export const store = createStore<State>({
@@ -20,23 +20,23 @@ export const store = createStore<State>({
   },
   getters: {
     getCurrentNoteName: (state) => {
-      return state.currentNoteName;
+      return state.currentNoteName
     },
   },
   mutations: {
     changeNote(state) {
-      const level = state.currentLevel;
-      const note = NoteManager.generateNoteFromLevel(level);
-      state.currentNoteName = note;
+      const level = state.currentLevel
+      const note = NoteManager.generateNoteFromLevel(level)
+      state.currentNoteName = note
     },
     changeLevel(state, level) {
-      state.currentLevel = level;
+      state.currentLevel = level
     },
   },
-});
+})
 
 // 独自のuserStoreメソッドを定義する
 export function useStore() {
   // InjectionKeyをuseStoreメソッドに渡す
-  return baseUseStore(key);
+  return baseUseStore(key)
 }

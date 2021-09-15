@@ -1,46 +1,38 @@
 <template>
-  <ElContainer>
-    <ElHeader>
-      <ElRow :gutter="20">
-        <ElCol :span="6">
+  <el-container>
+    <el-header>
+      <el-row :gutter="20">
+        <el-col :span="6">
           <div class="grid-content">
             <h1>FUYOMI</h1>
           </div>
-        </ElCol>
-        <ElCol :span="15" :offset="3">
+        </el-col>
+        <el-col :span="15" :offset="3">
           <div class="grid-content">
-            <ElMenu default-active="/" class="menu" mode="horizontal" router>
-              <ElMenuItem index="/">Fuyomu</ElMenuItem>
-              <ElMenuItem index="/about">About</ElMenuItem>
-              <ElMenuItem index="/setting">Setting</ElMenuItem>
-            </ElMenu>
+            <el-menu default-active="/" class="menu" mode="horizontal" router>
+              <el-menu-item index="/">Train</el-menu-item>
+              <el-menu-item index="/about">About</el-menu-item>
+              <el-menu-item index="/setting">Setting</el-menu-item>
+            </el-menu>
           </div>
-        </ElCol>
-      </ElRow>
-    </ElHeader>
-    <ElMain>
+        </el-col>
+      </el-row>
+    </el-header>
+    <el-main>
       <RouterView></RouterView>
-    </ElMain>
-  </ElContainer>
+    </el-main>
+  </el-container>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { ElHeader, ElMenu, ElMenuItem, ElContainer, ElRow, ElCol, ElMain } from 'element-plus'
-import { RouterView } from 'vue-router';
+import { defineComponent } from 'vue'
+import { RouterView } from 'vue-router'
 export default defineComponent({
   name: 'App',
   components: {
-    ElHeader,
-    ElMenu,
-    ElMenuItem,
-    ElContainer,
-    ElRow,
-    ElCol,
-    ElMain,
     RouterView,
   }
-});
+})
 </script>
 
 <style>

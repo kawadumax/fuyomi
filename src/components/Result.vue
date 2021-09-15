@@ -1,7 +1,10 @@
 <template>
     <div id="result-wrap">
         <div id="result">
-            <span :class="{ animation: isAnim }">{{ gooOrBoo }}</span>
+            <span
+                :class="{ animation: isAnim }"
+                v-on:animationend="$emit('afterAnimated')"
+            >{{ gooOrBoo }}</span>
         </div>
     </div>
 </template>
@@ -29,15 +32,11 @@ export default defineComponent({
     },
     computed: {
         gooOrBoo() {
-            if (this.$props.result == Result.None) return "";
+            if (this.$props.result == Result.None) return ""
             return this.$props.result == Result.Correct ? "👍" : "👎"
         }
     },
     mounted() {
-        let span = document.getElementsByTagName("span")[0];
-        span.addEventListener('animationend', () => {
-            this.$emit("afterAnimated", false)
-        });
     },
     methods: {
     }
