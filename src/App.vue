@@ -4,7 +4,9 @@
       <el-row :gutter="20">
         <el-col :span="6">
           <div class="grid-content">
-            <h1>FUYOMI</h1>
+            <h1>
+              <RouterLink to="/">FUYOMI</RouterLink>
+            </h1>
           </div>
         </el-col>
         <el-col :span="15" :offset="3">
@@ -26,11 +28,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { RouterView } from 'vue-router'
+import { RouterView, RouterLink } from 'vue-router'
 export default defineComponent({
   name: 'App',
   components: {
     RouterView,
+    RouterLink
   }
 })
 </script>
@@ -47,5 +50,10 @@ export default defineComponent({
 
 .menu {
   justify-content: flex-end;
+}
+
+h1 a {
+  text-decoration: none;
+  color: var(--el-color-primary);
 }
 </style>
