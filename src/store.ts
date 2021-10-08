@@ -23,9 +23,7 @@ export const store = createStore<State>({
   state: {
     currentNoteName: "F4",
     currentLevel: 0,
-    // points: fuyomiDB.table("userdata").get(1),
     points: 0,
-    // db: db,
   },
   getters: {
     getCurrentNoteName: (state) => {
@@ -40,7 +38,11 @@ export const store = createStore<State>({
         points: context.state.points,
       })
     },
-    getInitialValue(context) {},
+    async getInitialValue(context) {
+      const res = await fuyomiDB.table("userdata").get(1)
+      console.log(res)
+      context.state.points = res.points
+    },
   },
   mutations: {
     changeNote(state) {
