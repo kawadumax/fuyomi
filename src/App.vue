@@ -1,16 +1,9 @@
 <template>
   <el-container>
     <el-header>
-      <!-- <el-row :gutter="20"> -->
-      <!-- <el-col :span="6"> -->
-      <!-- <div class="grid-content"> -->
       <h1>
         <RouterLink to="/">FUYOMI</RouterLink>
       </h1>
-      <!-- </div> -->
-      <!-- </el-col> -->
-      <!-- <el-col :span="15" :offset="3"> -->
-      <!-- <div class="grid-content"> -->
       <div>
         <el-menu default-active="/" class="menu" mode="horizontal" router>
           <el-menu-item index="/">Train</el-menu-item>
@@ -18,9 +11,6 @@
           <el-menu-item index="/setting">Setting</el-menu-item>
         </el-menu>
       </div>
-      <!-- </div> -->
-      <!-- </el-col> -->
-      <!-- </el-row> -->
     </el-header>
     <el-main>
       <RouterView></RouterView>
@@ -47,10 +37,10 @@ export default defineComponent({
 </script>
 
 <style>
-:root {
-  /* --el-color-primary: green; */
-  /* CSS変数を初期化できるらしい（できなかった） */
-}
+/* :root { */
+/* --el-color-primary: green; */
+/* CSS変数を初期化できるらしい（できなかった） */
+/* } */
 
 body {
   margin: 0px;
