@@ -30,7 +30,12 @@ export default defineComponent({
             isAnim.value = true
             let R = Constant.Result
             let isNoteCorrect = noteValue == store.state.currentNoteName
-            currentAnswer.value = isNoteCorrect ? R.Correct : R.Incorrect
+            if (isNoteCorrect) {
+                store.dispatch("addPoint")
+                currentAnswer.value = R.Correct
+            } else {
+                currentAnswer.value = R.Incorrect
+            }
         }
         return { isAnim, currentAnswer, onAfterAnimated, onKeyPressed }
     },

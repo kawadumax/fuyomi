@@ -10,9 +10,10 @@
 - [x] 正解するまで次に行かないようにする
 - [] 広告を貼りたい
   - [x] vercel にデプロイする
-  - [] adsense 再申請
+  - [x] adsense 再申請
 - [] スコアを保存したい
   - [] IndexedDB を使って保存する
+  * とりあえず正解した数を increment していこう
 - [] midi 鍵に対応させたい
   - (参考)[https://www.w3.org/TR/webmidi/]
 - [] PWA 化したい
@@ -67,3 +68,8 @@ google adsense に落ちたので ninja tools で実験中。
 気が変わった。vercel にデプロイして、そっちで adsense を貼ろう。
 つまり ninja tools は一旦なし。
 と思う。github を private にしたい気分にもなったが、とりあえずは open で行こうかな。
+
+## 20211007
+
+ここ最近はindexedDBを導入していた。
+今は一応導入出来ていて、初期値をDBから引っ張ってくるところをしている

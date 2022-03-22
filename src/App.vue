@@ -28,8 +28,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useStore } from './store'
 import { RouterView, RouterLink } from 'vue-router'
 export default defineComponent({
+  setup() {
+    // Storeを取得し、初期化処理を行う。
+    const store = useStore()
+    store.dispatch("getInitialValue")
+  },
   name: 'App',
   components: {
     RouterView,
